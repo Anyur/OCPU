@@ -90,7 +90,6 @@ class HelpTicket extends Rooms.RoomGame {
 	close(staff) {
 		this.room.isHelp = 'closed';
 		this.ticket.open = false;
-		this.room.modchat = '%';
 		tickets[this.ticket.userid] = this.ticket;
 		writeTickets();
 		this.modnote(staff, `${staff.name} closed this ticket.`);

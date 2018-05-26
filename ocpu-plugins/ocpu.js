@@ -24,6 +24,7 @@ let asciiMap = new Map([
 ]);
 
 // misc
+const ADVERTISEMENT_COST = 45; // how much does /advertise cost to use?
 let regdateCache = {};
 let customColors = {};
 
@@ -46,6 +47,12 @@ OCPU.pmAll = function (message, pmName) {
 		curUser.send('|pm|' + pmName + '|' + curUser.getIdentity() + '|' + message);
 	});
 };
+
+function pluralFormat(length, ending) {
+	if (!ending) ending = 's';
+	if (isNaN(Number(length))) return false;
+	return (length === 1 ? '' : ending);
+}
 
 OCPU.regdate = function (target, callback) {
 	target = toId(target);
